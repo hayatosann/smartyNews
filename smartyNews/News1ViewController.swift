@@ -23,9 +23,20 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         // 背景画像を作る
         let imageView = UIImageView()
         imageView.frame = self.view.bounds
-        // Do any additional setup after loading the view.
+        imageView.image = UIImage(named: "1.jpg")
+        self.view.addSubview(imageView)
+        
+        //引っ張って更新
+        refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.white
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        
+        // tableViewを作成する
     }
     
+    @objc func refresh(){
+        
+    }
 
     /*
     // MARK: - Navigation
