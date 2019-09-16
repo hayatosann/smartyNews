@@ -9,7 +9,8 @@
 import UIKit
 import WebKit
 
-class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+
+class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,WKUIDelegate {
 
     var tableView:UITableView = UITableView()
     
@@ -17,6 +18,10 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     var webView:WKWebView = WKWebView()
     
+    var goButton:UIButton!
+    
+    var backButton:UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +44,17 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         tableView.addSubview(refreshControl)
         self.view.addSubview(tableView)
         
+        //webView
+        webView.frame = tableView.frame
+        webView.uiDelegate = self
+//        webView.scalesPageToFit = true
+        webView.contentMode = .scaleAspectFit
+        self.view.addSubview(webView)
+        webView.isHidden = true
+        
+        // 1つ進むボタン
+        goButton = UIButton()
+        goButton.frame = CGRect(x: self.view.frame.size.width - 50 , y: self.view.frame.size.height - 128, width: 50 , height: 50 )
         
     }
     

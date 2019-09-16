@@ -944,7 +944,7 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
     func removePageAtIndex(_ index : Int) {
         let oldVC = controllerArray[index]
         
-        oldVC.willMove(toParent: nil)
+        oldVC.willMove(toParent:nil)
         
         oldVC.view.removeFromSuperview()
         oldVC.removeFromParent()
