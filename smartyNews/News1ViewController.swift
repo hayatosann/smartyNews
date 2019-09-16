@@ -21,6 +21,8 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     var goButton:UIButton!
     
     var backButton:UIButton!
+    
+    var cancelButton:UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,12 +57,45 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         // 1つ進むボタン
         goButton = UIButton()
         goButton.frame = CGRect(x: self.view.frame.size.width - 50 , y: self.view.frame.size.height - 128, width: 50 , height: 50 )
+        goButton.setImage(UIImage(named:"go.png"), for: .normal)
+        goButton.addTarget(self, action: #selector(nextPage), for: .touchUpInside)
+        self.view.addSubview(goButton)
         
+        //戻るボタン
+        backButton = UIButton()
+        backButton.frame = CGRect(x: 10, y: self.view.frame.size.height - 128, width: 50, height: 50)
+        backButton.setImage(UIImage(named:"back.png"), for: .normal)
+        backButton.addTarget(self, action: #selector(backPage), for: .touchUpInside)
+        self.view.addSubview(backButton)
+        
+        //キャンセルボタン
+        cancelButton = UIButton()
+        cancelButton.frame = CGRect(x: 10, y: 80, width: 50, height: 50)
+        cancelButton.setImage(UIImage(named:"cancel.png"), for: .normal)
+        cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
+        self.view.addSubview(cancelButton)
+        
+        goButton.isHidden = true
+        backButton.isHidden = true
+        cancelButton.isHidden = true
     }
     
     @objc func refresh(){
         
     }
+    
+    @objc func nextPage(){
+        
+    }
+    
+    @objc func backPage(){
+        
+    }
+    
+    @objc func cancel(){
+        
+    }
+
 
     /*
     // MARK: - Navigation
