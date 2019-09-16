@@ -23,7 +23,9 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     var backButton:UIButton!
     
     var cancelButton:UIButton!
-
+    
+    var dotsView:DotsLoader! = DotsLoader()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,6 +80,17 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         goButton.isHidden = true
         backButton.isHidden = true
         cancelButton.isHidden = true
+        
+        // ドッツビュー
+        dotsView.frame = CGRect(x: 0, y: self.view.frame.size.height/3, width: self.view.frame.size.width, height: 100)
+        dotsView.dotsCount = 5
+        dotsView.dotsRadius = 10
+        self.view.addSubview(dotsView)
+        
+        dotsView.isHidden = true
+        
+        
+        
     }
     
     @objc func refresh(){
