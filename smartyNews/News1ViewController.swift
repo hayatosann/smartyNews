@@ -32,6 +32,14 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         
         // tableViewを作成する
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height - 54.0)
+        tableView.backgroundColor = UIColor.clear
+        tableView.addSubview(refreshControl)
+        self.view.addSubview(tableView)
+        
+        
     }
     
     @objc func refresh(){
