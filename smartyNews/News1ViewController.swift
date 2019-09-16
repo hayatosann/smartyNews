@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 
 
-class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,WKUIDelegate {
+class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,WKUIDelegate,XMLParserDelegate {
 
     var tableView:UITableView = UITableView()
     
@@ -25,6 +25,15 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     var cancelButton:UIButton!
     
     var dotsView:DotsLoader! = DotsLoader()
+    
+    var parser = XMLParser()
+    var totalBox = NSMutableArray()
+    var elements = NSMutableDictionary()
+    var element = String()
+    var titleString = NSMutableString()
+    var linkString = NSMutableString()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +98,14 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         dotsView.isHidden = true
         
+        // xmlを解析する(パース)
+        let url:String = "http://news.yahoo.co.jp/pickup/domestic/rss.xml"
+        let urlToSend:URL = URL(string:url)!
+        parser = XMLParser(contentsOf: urlToSend)!
+        totalBox = []
+        parser.delegate = self
+        parser.parse()
+        tableView.reloadData()
         
         
     }
