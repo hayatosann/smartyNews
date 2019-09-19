@@ -210,6 +210,25 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     // タグの終了を見つけた時
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        //itemという要素の中にあるなら、
+        if elementName == "item"{
+            
+             //titlestring(linkString)の中身が空でないなら
+            if titleString != ""{
+                //elementsにキー値を付与しながらtitleString(linkString)をセットする
+                elements.setObject(titleString, forKey: "title" as NSCopying)
+            }
+            
+            if linkString != ""{
+                //elementsにキー値を付与しながらtitleString(linkString)をセットする
+                elements.setObject(linkString, forKey: "link" as NSCopying)
+            }
+            //totalBoxの中にelementsを入れる
+            totalBox.add(elements)
+        }
+       
+    }
     
     /*
     // MARK: - Navigation
