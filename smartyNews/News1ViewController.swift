@@ -111,7 +111,18 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     @objc func refresh(){
-        
+        perform(#selector(delay), with: nil, afterDelay: 2.0)
+    }
+    
+    @objc func delay(){
+        let url:String = "http://news.yahoo.co.jp/pickup/domestic/rss.xml"
+        let urlToSend:URL = URL(string:url)!
+        parser = XMLParser(contentsOf: urlToSend)!
+        totalBox = []
+        parser.delegate = self
+        parser.parse()
+        tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     @objc func nextPage(){
@@ -125,8 +136,57 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     @objc func cancel(){
         
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return totalBox.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
+        cell.backgroundColor = UIColor.clear
+        cell.textLabel?.text = (totalBox[indexPath.row] as AnyObject).value(forKey: "title") as? String
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 15.0)
+        cell.textLabel?.textColor = UIColor.white
+        
+        cell.detailTextLabel?.text = (totalBox[indexPath.row] as AnyObject).value(forKey: "link") as? String
+        cell.detailTextLabel?.font = UIFont.boldSystemFont(ofSize: 9.0)
+        cell.detailTextLabel?.textColor = UIColor.white
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //webviewを表示する
+        let linkURL = (totalBox[indexPath.row] as AnyObject).value(forKey: "link") as? String
+        let urlStr = linkURL?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let url:URL = URL(string:urlStr!)!
+        let urlRequest = NSURLRequest(url: url)
+        webView.load(urlRequest as URLRequest)
+        
+        
+    }
+    
+    func webViewDidStartLoad(_ webView: WKWebView) {
+        dotsView.isHidden = false
+        dotsView.startAnimating()
+    }
 
+    func webViewDidFinishLoad(_ webView: WKWebView) {
+        dotsView.isHidden = true
+        dotsView.stopAnimating()
+        webView.isHidden = false
+        goButton.isHidden = false
+        cancelButton.isHidden = false
+        
+    }
     /*
     // MARK: - Navigation
 
