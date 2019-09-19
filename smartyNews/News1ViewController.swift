@@ -200,7 +200,14 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             linkString = ""
         }
     }
-    // タグの間にデータがあった時
+    // タグの間にデータがあった時(開始タグと終了タグで括られた箇所にデータが存在した時に実行されるメソッド)
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        if element == "title"{
+            titleString.append(string)
+        }else if element == "link"{
+            linkString.append(string)
+        }
+    }
     
     // タグの終了を見つけた時
     
