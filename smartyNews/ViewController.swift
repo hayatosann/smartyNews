@@ -44,6 +44,8 @@ class ViewController: UIViewController {
             .menuItemSeparatorPercentageHeight(0.1)
         ]
         
+        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0.0, y:20.0, width:self.view.frame.width, height:self.view.frame.size.height), pageMenuOptions: parameters)
+        
         //PageMenuのビューを親のビューに追加
         self.view.addSubview(pageMenu!.view)
         
