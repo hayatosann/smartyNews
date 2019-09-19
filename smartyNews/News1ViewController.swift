@@ -125,16 +125,25 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         refreshControl.endRefreshing()
     }
     
+    // webviewを1ページ進める
     @objc func nextPage(){
         
+        webView.goForward()
     }
     
+    // webviewを1ページ戻す
     @objc func backPage(){
         
+        webView.goBack()
     }
     
+    // webviewを隠す
     @objc func cancel(){
         
+        webView.isHidden = true
+        goButton.isHidden = true
+        backButton.isHidden = true
+        cancelButton.isHidden = true
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -190,6 +199,9 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     // タグを見つけた時
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+        
+        element = elementName
+        
         if element == "item"{
             
             elements = NSMutableDictionary()
