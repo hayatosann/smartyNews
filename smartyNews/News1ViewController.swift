@@ -187,6 +187,23 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         cancelButton.isHidden = false
         
     }
+    
+    // タグを見つけた時
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+        if element == "item"{
+            
+            elements = NSMutableDictionary()
+            elements = [:]
+            titleString = NSMutableString()
+            titleString = ""
+            linkString = NSMutableString()
+            linkString = ""
+        }
+    }
+    // タグの間にデータがあった時
+    
+    // タグの終了を見つけた時
+    
     /*
     // MARK: - Navigation
 
