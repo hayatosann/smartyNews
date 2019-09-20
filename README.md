@@ -1,4 +1,4 @@
-# smartyNews
+# Smarty News
 
 # 制作理由
 
