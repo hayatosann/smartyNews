@@ -23,7 +23,7 @@ iosアプリケーションの作成を通じて以下の目的を達成する:
   - Error: Multiple commands produce
   - No such module 'ライブラリ名'
   - 'WBSegmentControl' (project 'Pods') has copy command from
-  上記エラーの解決には手を焼き、特に解決しないとbuildができないエラーであったため、エラー文を検索にかけて参考記事の対処法を色々試した。
+  #### 上記エラーの解決には手を焼き、特に解決しないとbuildができないエラーであったため、エラー文を検索にかけて参考記事の対処法を色々試した。
   
 
 
