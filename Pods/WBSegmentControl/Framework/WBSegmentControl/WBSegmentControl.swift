@@ -20,10 +20,10 @@ public protocol WBTouchViewDelegate {
     func didTouch(_ location: CGPoint)
 }
 
-public class WBSegmentControl: UIControl {
-
+open class WBSegmentControl: UIControl {
+    
     // MARK: Configuration - Content
-    public var segments: [WBSegmentContentProtocol] = [] {
+    open var segments: [WBSegmentContentProtocol] = [] {
         didSet {
             innerSegments = segments.map({ (content) -> WBInnerSegment in
                 return WBInnerSegment(content: content)
@@ -35,10 +35,10 @@ public class WBSegmentControl: UIControl {
         }
     }
     var innerSegments: [WBInnerSegment] = []
-
+    
     // MARK: Configuration - Interaction
-    public var delegate: WBSegmentControlDelegate?
-    public var selectedIndex: Int = -1 {
+    open var delegate: WBSegmentControlDelegate?
+    open var selectedIndex: Int = -1 {
         didSet {
             if selectedIndex != oldValue && validIndex(selectedIndex) {
                 selectedIndexChanged(selectedIndex, oldIndex: oldValue)
@@ -46,71 +46,72 @@ public class WBSegmentControl: UIControl {
             }
         }
     }
-    public var selectedSegment: WBSegmentContentProtocol? {
+    open var selectedSegment: WBSegmentContentProtocol? {
         return validIndex(selectedIndex) ? segments[selectedIndex] : nil
     }
-
+    
     // MARK: Configuration - Appearance
-    public var style: WBSegmentIndicatorStyle = .rainbow
-    public var nonScrollDistributionStyle: WBSegmentNonScrollDistributionStyle = .average
-    public var enableSeparator: Bool = false
-    public var separatorColor: UIColor = UIColor.black
-    public var separatorWidth: CGFloat = 9
-    public var separatorEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: 8, left: 4, bottom: 8, right: 4)
-    public var enableSlideway: Bool = false
-    public var slidewayHeight: CGFloat = 1
-    public var slidewayColor: UIColor = UIColor.lightGray
-    public var enableAnimation: Bool = true
-    public var animationDuration: TimeInterval = 0.15
-    public var segmentMinWidth: CGFloat = 50
-    public var segmentEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-    public var segmentTextBold: Bool = true
-    public var segmentTextFontSize: CGFloat = 12
-    public var segmentForegroundColor: UIColor = UIColor.gray
-    public var segmentForegroundColorSelected: UIColor = UIColor.black
-
+    open var style: WBSegmentIndicatorStyle = .rainbow
+    open var nonScrollDistributionStyle: WBSegmentNonScrollDistributionStyle = .average
+    open var enableSeparator: Bool = false
+    open var separatorColor: UIColor = UIColor.black
+    open var separatorWidth: CGFloat = 9
+    open var separatorEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: 8, left: 4, bottom: 8, right: 4)
+    open var enableSlideway: Bool = false
+    open var slidewayHeight: CGFloat = 1
+    open var slidewayColor: UIColor = UIColor.lightGray
+    open var enableAnimation: Bool = true
+    open var animationDuration: TimeInterval = 0.15
+    open var contentBackgroundColor: UIColor = UIColor.white
+    open var segmentMinWidth: CGFloat = 50
+    open var segmentEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    open var segmentTextBold: Bool = true
+    open var segmentTextFontSize: CGFloat = 12
+    open var segmentTextForegroundColor: UIColor = UIColor.gray
+    open var segmentTextForegroundColorSelected: UIColor = UIColor.black
+    
     // Settings - Cover
     public typealias CoverRange = WBSegmentIndicatorRange
-
-    public var cover_range: CoverRange = .segment
-    public var cover_opacity: Float = 0.2
-    public var cover_color: UIColor = UIColor.black
-
+    
+    open var cover_range: CoverRange = .segment
+    open var cover_opacity: Float = 0.2
+    open var cover_color: UIColor = UIColor.black
+    
     // Settings - Strip
     public typealias StripRange = WBSegmentIndicatorRange
     public typealias StripLocation = WBSegmentIndicatorLocation
-
-    public var strip_range: StripRange = .content
-    public var strip_location: StripLocation = .down
-    public var strip_color: UIColor = UIColor.orange
-    public var strip_height: CGFloat = 3
-
+    
+    open var strip_range: StripRange = .content
+    open var strip_location: StripLocation = .down
+    open var strip_color: UIColor = UIColor.orange
+    open var strip_height: CGFloat = 3
+    
     // Settings - Rainbow
     public typealias RainbowLocation = WBSegmentIndicatorLocation
-
-    public var rainbow_colors: [UIColor] = []
-    public var rainbow_height: CGFloat = 3
-    public var rainbow_roundCornerRadius: CGFloat = 4
-    public var rainbow_location: RainbowLocation = .down
-    public var rainbow_outsideColor: UIColor = UIColor.gray
-
+    
+    open var rainbow_colors: [UIColor] = []
+    open var rainbow_height: CGFloat = 3
+    open var rainbow_roundCornerRadius: CGFloat = 4
+    open var rainbow_location: RainbowLocation = .down
+    open var rainbow_outsideColor: UIColor = UIColor.gray
+    
     // Settings - Arrow
     public typealias ArrowLocation = WBSegmentIndicatorLocation
-
-    public var arrow_size: CGSize = CGSize(width: 6, height: 6)
-    public var arrow_location: ArrowLocation = .down
-    public var arrow_color: UIColor = UIColor.orange
-
+    
+    open var arrow_size: CGSize = CGSize(width: 6, height: 6)
+    open var arrow_location: ArrowLocation = .down
+    open var arrow_color: UIColor = UIColor.orange
+    
     // Settings - ArrowStrip
     public typealias ArrowStripLocation = WBSegmentIndicatorLocation
     public typealias ArrowStripRange = WBSegmentIndicatorRange
-
-    public var arrowStrip_location: ArrowStripLocation = .up
-    public var arrowStrip_color: UIColor = UIColor.orange
-    public var arrowStrip_arrowSize: CGSize = CGSize(width: 6, height: 6)
-    public var arrowStrip_stripHeight: CGFloat = 2
-    public var arrowStrip_stripRange: ArrowStripRange = .content
-
+    
+    open var arrowStrip_location: ArrowStripLocation = .up
+    open var arrowStrip_color: UIColor = UIColor.orange
+    open var arrowStrip_arrowSize: CGSize = CGSize(width: 6, height: 6)
+    open var arrowStrip_stripHeight: CGFloat = 2
+    open var arrowStrip_stripRange: ArrowStripRange = .content
+    
     // MARK: Inner properties
     fileprivate var scrollView: UIScrollView!
     fileprivate var touchView: WBTouchView = WBTouchView()
@@ -124,42 +125,43 @@ public class WBSegmentControl: UIControl {
         })
         return sum + ((self.enableSeparator && self.style != .rainbow) ? self.separatorWidth / 2 : 0)
     }
-
+    
     // MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         scrollView = UIScrollView()
         self.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        self.addConstraint(NSLayoutConstraint(item: scrollView ?? <#default value#>, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: scrollView ?? <#default value#>, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: scrollView ?? <#default value#>, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: scrollView ?? <#default value#>, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: 0))
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
+        scrollView.backgroundColor = self.contentBackgroundColor
         scrollView.layer.addSublayer(layerContainer)
-
+        
         scrollView.addSubview(touchView)
         touchView.delegate = self
     }
-
+    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: Override methods
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         layerContainer.sublayers?.removeAll()
-
+        
         // Compute Segment Size
         for (index, segment) in self.innerSegments.enumerated() {
             segment.contentSize = self.segmentContentSize(segment)
             segment.segmentWidth = max(segment.contentSize.width + self.segmentEdgeInsets.left + self.segmentEdgeInsets.right, self.segmentMinWidth)
             segment.segmentFrame = self.segmentFrame(index)
         }
-
+        
         // Adjust Control Content Size & Segment Size
         self.scrollView.contentSize = CGSize(width: self.segmentControlContentWidth, height: self.scrollView.frame.height)
         if self.scrollView.contentSize.width < self.scrollView.frame.width {
@@ -195,16 +197,16 @@ public class WBSegmentControl: UIControl {
         } else {
             self.scrollView.contentInset = UIEdgeInsets.zero
         }
-
+        
         // Add Touch View
         touchView.frame = CGRect(origin: CGPoint.zero, size: self.scrollView.contentSize)
-
+        
         // Add Segment SubLayers
         for (index, segment) in self.innerSegments.enumerated() {
             let content_x = segment.segmentFrame.origin.x + (segment.segmentFrame.width - segment.contentSize.width) / 2
             let content_y = (self.scrollView.frame.height - segment.contentSize.height) / 2
             let content_frame = CGRect(x: content_x, y: content_y, width: segment.contentSize.width, height: segment.contentSize.height)
-
+            
             // Add Decoration Layer
             switch self.style {
             case .rainbow:
@@ -219,7 +221,7 @@ public class WBSegmentControl: UIControl {
             default:
                 break
             }
-
+            
             // Add Content Layer
             switch segment.content.type {
             case let .text(text):
@@ -232,7 +234,7 @@ public class WBSegmentControl: UIControl {
                 layerText.alignmentMode = CATextLayerAlignmentMode.center
                 layerText.truncationMode = CATextLayerTruncationMode.end
                 layerText.contentsScale = UIScreen.main.scale
-                layerText.foregroundColor = index == self.selectedIndex ? self.segmentForegroundColorSelected.cgColor : self.segmentForegroundColor.cgColor
+                layerText.foregroundColor = index == self.selectedIndex ? self.segmentTextForegroundColorSelected.cgColor : self.segmentTextForegroundColor.cgColor
                 layerContainer.addSublayer(layerText)
                 segment.layerText = layerText
             case let .icon(icon):
@@ -244,13 +246,13 @@ public class WBSegmentControl: UIControl {
                 segment.layerIcon = layerIcon
             }
         }
-
+        
         // Add Indicator Layer
         let initLayerSeparator = { [unowned self] in
             let layerSeparator = CALayer()
             layerSeparator.frame = CGRect(x: 0, y: 0, width: self.scrollView.contentSize.width, height: self.scrollView.contentSize.height)
             layerSeparator.backgroundColor = self.separatorColor.cgColor
-
+            
             let layerMask = CAShapeLayer()
             layerMask.fillColor = UIColor.white.cgColor
             let maskPath = UIBezierPath()
@@ -272,7 +274,7 @@ public class WBSegmentControl: UIControl {
             outsideLayerLeft.frame = CGRect(x: -1 * self.scrollView.frame.width, y: self.scrollView.frame.height - self.rainbow_height, width: self.scrollView.frame.width, height: self.rainbow_height)
             outsideLayerLeft.backgroundColor = self.rainbow_outsideColor.cgColor
             self.layerContainer.addSublayer(outsideLayerLeft)
-
+            
             let outsideLayerRight = CALayer()
             outsideLayerRight.frame = CGRect(x: self.scrollView.contentSize.width, y: self.scrollView.frame.height - self.rainbow_height, width: self.scrollView.frame.width, height: self.rainbow_height)
             outsideLayerRight.backgroundColor = self.rainbow_outsideColor.cgColor
@@ -292,7 +294,7 @@ public class WBSegmentControl: UIControl {
         let initLayerArrow = { [unowned self] (arrowFrame: CGRect, arrowLocation: WBSegmentIndicatorLocation, arrowColor: UIColor) in
             self.layerArrow.frame = arrowFrame
             self.layerArrow.backgroundColor = arrowColor.cgColor
-
+            
             let layerMask = CAShapeLayer()
             layerMask.fillColor = UIColor.white.cgColor
             let maskPath = UIBezierPath()
@@ -315,7 +317,7 @@ public class WBSegmentControl: UIControl {
             maskPath.close()
             layerMask.path = maskPath.cgPath
             self.layerArrow.mask = layerMask
-
+            
             self.layerContainer.addSublayer(self.layerArrow)
         }
         switch self.style {
@@ -350,7 +352,7 @@ public class WBSegmentControl: UIControl {
             self.enableSeparator ? initLayerSeparator() : ()
         }
     }
-
+    
     // MARK: Custom methods
     func selectedIndexChanged(_ newIndex: Int, oldIndex: Int) {
         if self.enableAnimation && validIndex(oldIndex) {
@@ -366,17 +368,17 @@ public class WBSegmentControl: UIControl {
                 default:
                     break
                 }
-                })
+            })
             self.scrollView.contentSize.width > self.scrollView.frame.width ? self.scrollToSegment(newIndex) : ()
             self.didSelectedIndexChanged(newIndex, oldIndex: oldIndex)
             CATransaction.commit()
         } else {
             self.didSelectedIndexChanged(newIndex, oldIndex: oldIndex)
         }
-
+        
         self.sendActions(for: .valueChanged)
     }
-
+    
     func didSelectedIndexChanged(_ newIndex: Int, oldIndex: Int) {
         switch style {
         case .cover:
@@ -404,12 +406,12 @@ public class WBSegmentControl: UIControl {
             self.layerArrow.actions = nil
             self.layerArrow.frame = self.indicatorArrowFrame(newIndex, arrowLocation: self.arrowStrip_location, arrowSize: self.arrowStrip_arrowSize)
         }
-
+        
         if validIndex(oldIndex) {
             switch self.innerSegments[oldIndex].content.type {
             case .text:
                 if let old_contentLayer = self.innerSegments[oldIndex].layerText as? CATextLayer {
-                    old_contentLayer.foregroundColor = self.segmentForegroundColor.cgColor
+                    old_contentLayer.foregroundColor = self.segmentTextForegroundColor.cgColor
                 }
             default:
                 break
@@ -418,13 +420,13 @@ public class WBSegmentControl: UIControl {
         switch self.innerSegments[newIndex].content.type {
         case .text:
             if let new_contentLayer = self.innerSegments[newIndex].layerText as? CATextLayer {
-                new_contentLayer.foregroundColor = self.segmentForegroundColorSelected.cgColor
+                new_contentLayer.foregroundColor = self.segmentTextForegroundColorSelected.cgColor
             }
         default:
             break
         }
     }
-
+    
     func switchRoundCornerForLayer(_ layer: CALayer, isRoundCorner: Bool) {
         if isRoundCorner {
             let layerMask = CAShapeLayer()
@@ -435,13 +437,13 @@ public class WBSegmentControl: UIControl {
             layer.mask = nil
         }
     }
-
+    
     func scrollToSegment(_ index: Int) {
         let segmentFrame = self.innerSegments[index].segmentFrame
         let targetRect = CGRect(x: segmentFrame.origin.x - (self.scrollView.frame.width - segmentFrame.width) / 2, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
         self.scrollView.scrollRectToVisible(targetRect, animated: true)
     }
-
+    
     func segmentContentSize(_ segment: WBInnerSegment) -> CGSize {
         var size = CGSize.zero
         switch segment.content.type {
@@ -454,7 +456,7 @@ public class WBSegmentControl: UIControl {
         }
         return CGSize(width: ceil(size.width), height: ceil(size.height))
     }
-
+    
     func segmentFrame(_ index: Int) -> CGRect {
         var segmentOffset: CGFloat = (self.enableSeparator && self.style != .rainbow ? self.separatorWidth / 2 : 0)
         for (idx, segment) in self.innerSegments.enumerated() {
@@ -466,7 +468,7 @@ public class WBSegmentControl: UIControl {
         }
         return CGRect(x: segmentOffset , y: 0, width: self.innerSegments[index].segmentWidth, height: self.scrollView.frame.height)
     }
-
+    
     func indicatorCoverFrame(_ index: Int) -> CGRect {
         if validIndex(index) {
             var box_x: CGFloat = self.innerSegments[index].segmentFrame.origin.x
@@ -483,7 +485,7 @@ public class WBSegmentControl: UIControl {
             return CGRect.zero
         }
     }
-
+    
     func indicatorStripFrame(_ index: Int, stripHeight: CGFloat, stripLocation: WBSegmentIndicatorLocation, stripRange: WBSegmentIndicatorRange) -> CGRect {
         if validIndex(index) {
             var strip_x: CGFloat = self.innerSegments[index].segmentFrame.origin.x
@@ -507,7 +509,7 @@ public class WBSegmentControl: UIControl {
             return CGRect.zero
         }
     }
-
+    
     func indicatorArrowFrame(_ index: Int, arrowLocation: WBSegmentIndicatorLocation, arrowSize: CGSize) -> CGRect {
         if validIndex(index) {
             let arrow_x: CGFloat = self.innerSegments[index].segmentFrame.origin.x + (self.innerSegments[index].segmentFrame.width - arrowSize.width) / 2
@@ -523,7 +525,7 @@ public class WBSegmentControl: UIControl {
             return CGRect.zero
         }
     }
-
+    
     func indexForTouch(_ location: CGPoint) -> Int {
         var touch_offset_x = location.x
         var touch_index = 0
@@ -536,7 +538,7 @@ public class WBSegmentControl: UIControl {
         }
         return touch_index
     }
-
+    
     func validIndex(_ index: Int) -> Bool {
         return index >= 0 && index < segments.count
     }
@@ -549,17 +551,17 @@ extension WBSegmentControl: WBTouchViewDelegate {
 }
 
 class WBInnerSegment {
-
+    
     let content: WBSegmentContentProtocol
-
+    
     var segmentFrame: CGRect = CGRect.zero
     var segmentWidth: CGFloat = 0
     var contentSize: CGSize = CGSize.zero
-
+    
     var layerText: CALayer!
     var layerIcon: CALayer!
     var layerStrip: CALayer!
-
+    
     init(content: WBSegmentContentProtocol) {
         self.content = content
     }
@@ -587,9 +589,9 @@ public enum WBSegmentNonScrollDistributionStyle {
 }
 
 class WBTouchView: UIView {
-
+    
     var delegate: WBTouchViewDelegate?
-
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             delegate?.didTouch(touch.location(in: self))

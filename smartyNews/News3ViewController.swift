@@ -7,11 +7,9 @@
 //
 
 import UIKit
-import WebKit
 import SDWebImage
 
-
-class News3ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,WKUIDelegate,XMLParserDelegate {
+class News3ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate,XMLParserDelegate {
     
     var urlArray = [String]()
     
@@ -19,7 +17,7 @@ class News3ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     var refreshControl:UIRefreshControl!
     
-    var webView:WKWebView = WKWebView()
+    var webView:UIWebView = UIWebView()
     
     var goButton:UIButton!
     
@@ -37,12 +35,10 @@ class News3ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     var linkString = NSMutableString()
     var urlString = String()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 背景画像を作る
+        //背景画像をつくる
         let imageView = UIImageView()
         imageView.frame = self.view.bounds
         imageView.image = UIImage(named: "3.jpg")
@@ -53,7 +49,8 @@ class News3ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         refreshControl.tintColor = UIColor.white
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         
-        // tableViewを作成する
+        
+        //tableViewを作成する
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height - 54.0)
@@ -63,38 +60,40 @@ class News3ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         //webView
         webView.frame = tableView.frame
-        webView.uiDelegate = self
-        //        webView.scalesPageToFit = true
+        webView.delegate = self
+        webView.scalesPageToFit = true
         webView.contentMode = .scaleAspectFit
         self.view.addSubview(webView)
         webView.isHidden = true
         
-        // 1つ進むボタン
+        //1つ進むボタン
         goButton = UIButton()
-        goButton.frame = CGRect(x: self.view.frame.size.width - 50 , y: self.view.frame.size.height - 128, width: 50 , height: 50 )
+        goButton.frame = CGRect(x: self.view.frame.size.width - 50, y:self.view.frame.size.height - 128 , width: 50, height: 50)
         goButton.setImage(UIImage(named:"go.png"), for: .normal)
         goButton.addTarget(self, action: #selector(nextPage), for: .touchUpInside)
         self.view.addSubview(goButton)
         
         //戻るボタン
         backButton = UIButton()
-        backButton.frame = CGRect(x: 10, y: self.view.frame.size.height - 128, width: 50, height: 50)
+        backButton.frame = CGRect(x: 10, y:self.view.frame.size.height - 128, width: 50, height: 50)
         backButton.setImage(UIImage(named:"back.png"), for: .normal)
         backButton.addTarget(self, action: #selector(backPage), for: .touchUpInside)
         self.view.addSubview(backButton)
         
         //キャンセルボタン
         cancelButton = UIButton()
-        cancelButton.frame = CGRect(x: 10, y: 80, width: 50, height: 50)
+        cancelButton.frame = CGRect(x: 10, y:80, width: 50, height: 50)
         cancelButton.setImage(UIImage(named:"cancel.png"), for: .normal)
         cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         self.view.addSubview(cancelButton)
+        
         
         goButton.isHidden = true
         backButton.isHidden = true
         cancelButton.isHidden = true
         
-        // ドッツビュー
+        
+        //ドッツビュー
         dotsView.frame = CGRect(x: 0, y: self.view.frame.size.height/3, width: self.view.frame.size.width, height: 100)
         dotsView.dotsCount = 5
         dotsView.dotsRadius = 10
@@ -102,57 +101,73 @@ class News3ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         dotsView.isHidden = true
         
-        // xmlを解析する(パース)
+        
+        //xmlを解析する(パース)
         let url:String = "https://www.cnet.com/rss/gaming/"
         let urlToSend:URL = URL(string:url)!
-        parser = XMLParser(contentsOf: urlToSend)!
+        parser = XMLParser(contentsOf:urlToSend)!
         totalBox = []
         parser.delegate = self
         parser.parse()
         tableView.reloadData()
         
         
+        
+        
+        // Do any additional setup after loading the view.
     }
     
     @objc func refresh(){
+        
         perform(#selector(delay), with: nil, afterDelay: 2.0)
+        
     }
     
     @objc func delay(){
+        
+        //xmlを解析する(パース)
         let url:String = "https://www.cnet.com/rss/gaming/"
         let urlToSend:URL = URL(string:url)!
-        parser = XMLParser(contentsOf: urlToSend)!
+        parser = XMLParser(contentsOf:urlToSend)!
         totalBox = []
         parser.delegate = self
         parser.parse()
         tableView.reloadData()
         refreshControl.endRefreshing()
+        
+        
     }
     
-    // webviewを1ページ進める
+    //webViewを1ページ進める
     @objc func nextPage(){
         
         webView.goForward()
     }
     
-    // webviewを1ページ戻す
+    //webViewを1ページ戻す
     @objc func backPage(){
         
         webView.goBack()
+        
     }
     
-    // webviewを隠す
+    //webViewを隠す
     @objc func cancel(){
         
         webView.isHidden = true
         goButton.isHidden = true
         backButton.isHidden = true
         cancelButton.isHidden = true
+        
     }
     
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return 100
+        
     }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -163,7 +178,9 @@ class News3ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
+        
         
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
@@ -171,43 +188,55 @@ class News3ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 15.0)
         cell.textLabel?.textColor = UIColor.white
         
+        
+        
         cell.detailTextLabel?.text = (totalBox[indexPath.row] as AnyObject).value(forKey: "link") as? String
         cell.detailTextLabel?.font = UIFont.boldSystemFont(ofSize: 9.0)
         cell.detailTextLabel?.textColor = UIColor.white
         
         let urlStr = urlArray[indexPath.row].addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let url:URL = URL(string: urlStr)!
-        cell.imageView?.sd_setImage(with: url,placeholderImage: UIImage(named: "placeholderImage.png"))
+        let url:URL = URL(string:urlStr)!
+        
+        cell.imageView?.sd_setImage(with: url,placeholderImage: UIImage(named:"placeholderImage.png"))
+        
         
         return cell
+        
     }
     
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //webviewを表示する
+        
+        //WebViewを表示する
         let linkURL = (totalBox[indexPath.row] as AnyObject).value(forKey: "link") as? String
         //        let urlStr = linkURL?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url:URL = URL(string:linkURL!)!
         let urlRequest = NSURLRequest(url: url)
-        webView.load(urlRequest as URLRequest)
+        webView.loadRequest(urlRequest as URLRequest)
         
         
     }
     
-    func webViewDidStartLoad(_ webView: WKWebView) {
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        
         dotsView.isHidden = false
         dotsView.startAnimating()
     }
     
-    func webViewDidFinishLoad(_ webView: WKWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        
         dotsView.isHidden = true
         dotsView.stopAnimating()
         webView.isHidden = false
-        goButton.isHidden = false
+        goButton.isHidden  = false
+        backButton.isHidden = false
         cancelButton.isHidden = false
         
     }
     
-    // タグを見つけた時
+    
+    //タグを見つけた時
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
         element = elementName
@@ -222,53 +251,80 @@ class News3ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             linkString = ""
             urlString = String()
             
-        }else if element == "media: thumbnail"{
+        }else if element == "media:thumbnail"{
+            
             urlString = attributeDict["url"]!
             urlArray.append(urlString)
+            
         }
-    }
-    // タグの間にデータがあった時(開始タグと終了タグで括られた箇所にデータが存在した時に実行されるメソッド)
-    func parser(_ parser: XMLParser, foundCharacters string: String) {
-        if element == "title"{
-            titleString.append(string)
-        }else if element == "link"{
-            linkString.append(string)
-        }
+        
     }
     
-    // タグの終了を見つけた時
+    
+    
+    //タグの間にデータがあったとき(開始タグと終了タグでくくられた箇所にデータが存在したときに実行されるメソッド)
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        
+        if element == "title"{
+            
+            titleString.append(string)
+            
+        }else if element == "link"{
+            
+            linkString.append(string)
+        }
+        
+        
+        
+    }
+    
+    
+    //タグの終了を見つけたとき
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        
         //itemという要素の中にあるなら、
         if elementName == "item"{
             
-            //titlestring(linkString)の中身が空でないなら
+            //titleString(linkString)の中身が空でないなら、
             if titleString != ""{
+                
                 //elementsにキー値を付与しながらtitleString(linkString)をセットする
                 elements.setObject(titleString, forKey: "title" as NSCopying)
             }
             
             if linkString != ""{
+                
                 //elementsにキー値を付与しながらtitleString(linkString)をセットする
                 elements.setObject(linkString, forKey: "link" as NSCopying)
             }
             
             elements.setObject(urlString, forKey: "url" as NSCopying)
+            
             //totalBoxの中にelementsを入れる
             totalBox.add(elements)
+            
         }
         
+        
     }
+    
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     
     /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
+     // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
      }
      */
     
 }
-
 

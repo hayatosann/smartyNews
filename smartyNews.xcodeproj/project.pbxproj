@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04DBE9132334C5D6007F6230 /* WBSegmentControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DBE9122334C5D6007F6230 /* WBSegmentControl.framework */; };
 		04DBE9152334C5DD007F6230 /* Pods_smartyNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DBE9142334C5DD007F6230 /* Pods_smartyNews.framework */; };
 		04DBE9172334C5E4007F6230 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DBE9162334C5E4007F6230 /* SDWebImage.framework */; };
+		04DBE9192334FBDE007F6230 /* WBSegmentControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DBE9182334FBDE007F6230 /* WBSegmentControl.framework */; };
 		04DE5DBD232A2DFA00662D48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE5DBC232A2DFA00662D48 /* AppDelegate.swift */; };
 		04DE5DBF232A2DFA00662D48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE5DBE232A2DFA00662D48 /* ViewController.swift */; };
 		04DE5DC2232A2DFA00662D48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DE5DC0232A2DFA00662D48 /* Main.storyboard */; };
@@ -38,6 +38,7 @@
 		04DBE9122334C5D6007F6230 /* WBSegmentControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WBSegmentControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DBE9142334C5DD007F6230 /* Pods_smartyNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_smartyNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DBE9162334C5E4007F6230 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DBE9182334FBDE007F6230 /* WBSegmentControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WBSegmentControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DE5DB9232A2DFA00662D48 /* smartyNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartyNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DE5DBC232A2DFA00662D48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04DE5DBE232A2DFA00662D48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,9 +72,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DBE9192334FBDE007F6230 /* WBSegmentControl.framework in Frameworks */,
 				04DBE9172334C5E4007F6230 /* SDWebImage.framework in Frameworks */,
 				04DBE9152334C5DD007F6230 /* Pods_smartyNews.framework in Frameworks */,
-				04DBE9132334C5D6007F6230 /* WBSegmentControl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +84,7 @@
 		01C6BE043BC96257751646B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04DBE9182334FBDE007F6230 /* WBSegmentControl.framework */,
 				04DBE9162334C5E4007F6230 /* SDWebImage.framework */,
 				04DBE9142334C5DD007F6230 /* Pods_smartyNews.framework */,
 				04DBE9122334C5D6007F6230 /* WBSegmentControl.framework */,
@@ -434,6 +436,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.BOXAR.smartyNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -453,6 +456,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.BOXAR.smartyNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

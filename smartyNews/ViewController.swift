@@ -110,7 +110,7 @@ class ViewController: UIViewController {
 extension ViewController: WBSegmentControlDelegate {
     func segmentControl(_ segmentControl: WBSegmentControl, selectIndex newIndex: Int, oldIndex: Int) {
         let targetPages = [pages[newIndex]]
-        let direction = ((newIndex > oldIndex) ? UIPageViewControllerNavigationDirection.forward : UIPageViewControllerNavigationDirection.reverse)
+        let direction = ((newIndex > oldIndex) ? UIPageViewController.NavigationDirection.forward : UIPageViewController.NavigationDirection.reverse)
         pagesController.setViewControllers(targetPages, direction: direction, animated: true, completion: nil)
         
         if let selectedSegment = segmentControl.selectedSegment as? TextSegment {
