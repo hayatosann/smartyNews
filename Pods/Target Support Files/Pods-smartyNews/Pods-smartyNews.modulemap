@@ -1,0 +1,6 @@
+framework module Pods_smartyNews {
+  umbrella header "Pods-smartyNews-umbrella.h"
+
+  export *
+  module * { export * }
+}

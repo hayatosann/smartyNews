@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04DBE9132334C5D6007F6230 /* WBSegmentControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DBE9122334C5D6007F6230 /* WBSegmentControl.framework */; };
+		04DBE9152334C5DD007F6230 /* Pods_smartyNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DBE9142334C5DD007F6230 /* Pods_smartyNews.framework */; };
+		04DBE9172334C5E4007F6230 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DBE9162334C5E4007F6230 /* SDWebImage.framework */; };
 		04DE5DBD232A2DFA00662D48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE5DBC232A2DFA00662D48 /* AppDelegate.swift */; };
 		04DE5DBF232A2DFA00662D48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE5DBE232A2DFA00662D48 /* ViewController.swift */; };
 		04DE5DC2232A2DFA00662D48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DE5DC0232A2DFA00662D48 /* Main.storyboard */; };
@@ -32,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04DBE9122334C5D6007F6230 /* WBSegmentControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WBSegmentControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DBE9142334C5DD007F6230 /* Pods_smartyNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_smartyNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DBE9162334C5E4007F6230 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DE5DB9232A2DFA00662D48 /* smartyNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartyNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DE5DBC232A2DFA00662D48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04DE5DBE232A2DFA00662D48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +62,8 @@
 		04DE5DEA232A313000662D48 /* News3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News3ViewController.swift; sourceTree = "<group>"; };
 		04DE5DEC232A316100662D48 /* News4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News4ViewController.swift; sourceTree = "<group>"; };
 		04DE5DEE232A319C00662D48 /* News5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News5ViewController.swift; sourceTree = "<group>"; };
+		5F34CB40CE05FBA4EA7FBF55 /* Pods-smartyNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartyNews.debug.xcconfig"; path = "Target Support Files/Pods-smartyNews/Pods-smartyNews.debug.xcconfig"; sourceTree = "<group>"; };
+		AFE2FDFF0CE1F93CC2EBF4E2 /* Pods-smartyNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartyNews.release.xcconfig"; path = "Target Support Files/Pods-smartyNews/Pods-smartyNews.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,17 +71,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DBE9172334C5E4007F6230 /* SDWebImage.framework in Frameworks */,
+				04DBE9152334C5DD007F6230 /* Pods_smartyNews.framework in Frameworks */,
+				04DBE9132334C5D6007F6230 /* WBSegmentControl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01C6BE043BC96257751646B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04DBE9162334C5E4007F6230 /* SDWebImage.framework */,
+				04DBE9142334C5DD007F6230 /* Pods_smartyNews.framework */,
+				04DBE9122334C5D6007F6230 /* WBSegmentControl.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		04DE5DB0232A2DFA00662D48 = {
 			isa = PBXGroup;
 			children = (
 				04DE5DBB232A2DFA00662D48 /* smartyNews */,
 				04DE5DBA232A2DFA00662D48 /* Products */,
+				1D7B8FCA25235FC6CB52BDDE /* Pods */,
+				01C6BE043BC96257751646B5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +138,15 @@
 			path = smartyNews;
 			sourceTree = "<group>";
 		};
+		1D7B8FCA25235FC6CB52BDDE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F34CB40CE05FBA4EA7FBF55 /* Pods-smartyNews.debug.xcconfig */,
+				AFE2FDFF0CE1F93CC2EBF4E2 /* Pods-smartyNews.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,9 +154,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04DE5DCB232A2DFC00662D48 /* Build configuration list for PBXNativeTarget "smartyNews" */;
 			buildPhases = (
+				4C380B55F8D1FE36D646F611 /* [CP] Check Pods Manifest.lock */,
 				04DE5DB5232A2DFA00662D48 /* Sources */,
 				04DE5DB6232A2DFA00662D48 /* Frameworks */,
 				04DE5DB7232A2DFA00662D48 /* Resources */,
+				FB82F19D3FDFE61D0A104729 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -190,6 +224,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4C380B55F8D1FE36D646F611 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-smartyNews-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB82F19D3FDFE61D0A104729 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-smartyNews/Pods-smartyNews-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-smartyNews/Pods-smartyNews-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-smartyNews/Pods-smartyNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04DE5DB5232A2DFA00662D48 /* Sources */ = {
@@ -348,6 +424,7 @@
 		};
 		04DE5DCC232A2DFC00662D48 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F34CB40CE05FBA4EA7FBF55 /* Pods-smartyNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -366,6 +443,7 @@
 		};
 		04DE5DCD232A2DFC00662D48 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFE2FDFF0CE1F93CC2EBF4E2 /* Pods-smartyNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
