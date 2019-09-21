@@ -43,9 +43,11 @@ iosアプリケーションの作成を通じて以下の目的を達成する:
  
 # 挙動
 ## アプリ起動時
+
 [![Image from Gyazo](https://i.gyazo.com/b37840bf89f724dbace6afe7b101c3ce.gif)](https://gyazo.com/b37840bf89f724dbace6afe7b101c3ce)
 ## タブ切り替え遷移
-[![Image from Gyazo](https://i.gyazo.com/2e91a8948046f89d8335a6d036f5423e.gif)](https://gyazo.com/2e91a8948046f89d8335a6d036f5423e)
+
+[![Image from Gyazo](https://i.gyazo.com/a914d6ec771f3fe4d25e1f99f0617206.gif)](https://gyazo.com/a914d6ec771f3fe4d25e1f99f0617206)
 
 ## ニュースをみる
 [![Image from Gyazo](https://i.gyazo.com/01fd724c70fc65672bb17a1146ffcc9e.gif)](https://gyazo.com/01fd724c70fc65672bb17a1146ffcc9e)
