@@ -43,28 +43,7 @@ iosアプリケーションの作成を通じて以下の目的を達成する:
  
 # 挙動
 ## アプリ起動時
-
-[![Image from Gyazo](https://i.gyazo.com/b37840bf89f724dbace6afe7b101c3ce.gif)](https://gyazo.com/b37840bf89f724dbace6afe7b101c3ce)
-## タブ切り替え遷移
-
-[![Image from Gyazo](https://i.gyazo.com/a914d6ec771f3fe4d25e1f99f0617206.gif)](https://gyazo.com/a914d6ec771f3fe4d25e1f99f0617206)
-
-## ニュースをみる
-[![Image from Gyazo](https://i.gyazo.com/01fd724c70fc65672bb17a1146ffcc9e.gif)](https://gyazo.com/01fd724c70fc65672bb17a1146ffcc9e)
-
-## 1ページ進む
-[![Image from Gyazo](https://i.gyazo.com/f1bc125ed4f8575bfef550ff58e9b359.gif)](https://gyazo.com/f1bc125ed4f8575bfef550ff58e9b359)
-
-## 1ページ戻る
-[![Image from Gyazo](https://i.gyazo.com/ed6201f520a432d48abcdc45b8b48e38.gif)](https://gyazo.com/ed6201f520a432d48abcdc45b8b48e38)
-
-## 閉じるボタン
-[![Image from Gyazo](https://i.gyazo.com/2181c7773835d48611fb3f6b77f1f192.gif)](https://gyazo.com/2181c7773835d48611fb3f6b77f1f192)
-
-## 引っ張って更新
-[![Image from Gyazo](https://i.gyazo.com/63311bf247300d76d23cf56121379504.gif)](https://gyazo.com/63311bf247300d76d23cf56121379504)
-
- 
+[![Image from Gyazo](https://i.gyazo.com/9203f1492d3fd6c7e69909f15f6bd589.gif)](https://gyazo.com/9203f1492d3fd6c7e69909f15f6bd589)
 # 課題
  - ios12.0においてはUIWebViewの使用は非推奨であったためWKWebViewを使用し、当初は実装していたが上手くページ遷移ができず実装にかなりの時間を要したため、UIWebViewを使用しての実装へと切り替えた。今後はWKWebViewでの実装が主流となっていくと考えられるため、WKWebViewを使いこなせるように公式リファレンスや該当記事を見つけ出して学習に努めていきたいところである。
  
