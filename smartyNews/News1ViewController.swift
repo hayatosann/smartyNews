@@ -38,7 +38,7 @@ class News1ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         //背景画像をつくる
         let imageView = UIImageView()
         imageView.frame = self.view.bounds
-        imageView.image = UIImage(named: "1.jpg")
+        imageView.image = UIImage(named: "6.jpg")
         self.view.addSubview(imageView)
         
         //引っ張って更新
