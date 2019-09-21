@@ -10,6 +10,12 @@
 		04DBE9152334C5DD007F6230 /* Pods_smartyNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DBE9142334C5DD007F6230 /* Pods_smartyNews.framework */; };
 		04DBE9172334C5E4007F6230 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DBE9162334C5E4007F6230 /* SDWebImage.framework */; };
 		04DBE9192334FBDE007F6230 /* WBSegmentControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DBE9182334FBDE007F6230 /* WBSegmentControl.framework */; };
+		04DBE91B2335FD3F007F6230 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04DBE91A2335FD3E007F6230 /* 6.jpg */; };
+		04DBE91D2335FDC8007F6230 /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04DBE91C2335FDC8007F6230 /* 7.jpg */; };
+		04DBE91F2335FE3E007F6230 /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04DBE91E2335FE3E007F6230 /* 8.jpg */; };
+		04DBE9212335FEDF007F6230 /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04DBE9202335FEDF007F6230 /* 9.jpg */; };
+		04DBE9232336024C007F6230 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04DBE9222336024B007F6230 /* 10.jpg */; };
+		04DBE925233609D7007F6230 /* 11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04DBE924233609D7007F6230 /* 11.jpg */; };
 		04DE5DBD232A2DFA00662D48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE5DBC232A2DFA00662D48 /* AppDelegate.swift */; };
 		04DE5DBF232A2DFA00662D48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE5DBE232A2DFA00662D48 /* ViewController.swift */; };
 		04DE5DC2232A2DFA00662D48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DE5DC0232A2DFA00662D48 /* Main.storyboard */; };
@@ -39,6 +45,12 @@
 		04DBE9142334C5DD007F6230 /* Pods_smartyNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_smartyNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DBE9162334C5E4007F6230 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DBE9182334FBDE007F6230 /* WBSegmentControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WBSegmentControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DBE91A2335FD3E007F6230 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
+		04DBE91C2335FDC8007F6230 /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
+		04DBE91E2335FE3E007F6230 /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
+		04DBE9202335FEDF007F6230 /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
+		04DBE9222336024B007F6230 /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
+		04DBE924233609D7007F6230 /* 11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 11.jpg; sourceTree = "<group>"; };
 		04DE5DB9232A2DFA00662D48 /* smartyNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartyNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DE5DBC232A2DFA00662D48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04DE5DBE232A2DFA00662D48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -114,10 +126,16 @@
 			isa = PBXGroup;
 			children = (
 				04DE5DCE232A2EDA00662D48 /* 1.jpg */,
+				04DBE91A2335FD3E007F6230 /* 6.jpg */,
+				04DBE91C2335FDC8007F6230 /* 7.jpg */,
 				04DE5DD0232A2EDA00662D48 /* 2.jpg */,
 				04DE5DD4232A2EDA00662D48 /* 3.jpg */,
+				04DBE91E2335FE3E007F6230 /* 8.jpg */,
 				04DE5DD9232A2EDB00662D48 /* 4.jpg */,
+				04DBE9202335FEDF007F6230 /* 9.jpg */,
+				04DBE924233609D7007F6230 /* 11.jpg */,
 				04DE5DD3232A2EDA00662D48 /* 5.jpg */,
+				04DBE9222336024B007F6230 /* 10.jpg */,
 				04DE5DD5232A2EDB00662D48 /* back.png */,
 				04DE5DD1232A2EDA00662D48 /* cancel.png */,
 				04DE5DD6232A2EDB00662D48 /* CAPSPageMenu.swift */,
@@ -209,9 +227,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DBE91B2335FD3F007F6230 /* 6.jpg in Resources */,
 				04DE5DE0232A2EDB00662D48 /* 3.jpg in Resources */,
 				04DE5DDC232A2EDB00662D48 /* 2.jpg in Resources */,
 				04DE5DDF232A2EDB00662D48 /* 5.jpg in Resources */,
+				04DBE925233609D7007F6230 /* 11.jpg in Resources */,
+				04DBE9232336024C007F6230 /* 10.jpg in Resources */,
 				04DE5DC7232A2DFC00662D48 /* LaunchScreen.storyboard in Resources */,
 				04DE5DDD232A2EDB00662D48 /* cancel.png in Resources */,
 				04DE5DDB232A2EDB00662D48 /* SmartyNews1.zip in Resources */,
@@ -220,6 +241,9 @@
 				04DE5DC4232A2DFC00662D48 /* Assets.xcassets in Resources */,
 				04DE5DC2232A2DFA00662D48 /* Main.storyboard in Resources */,
 				04DE5DE3232A2EDB00662D48 /* placeholderImage.png in Resources */,
+				04DBE9212335FEDF007F6230 /* 9.jpg in Resources */,
+				04DBE91F2335FE3E007F6230 /* 8.jpg in Resources */,
+				04DBE91D2335FDC8007F6230 /* 7.jpg in Resources */,
 				04DE5DE4232A2EDB00662D48 /* go.png in Resources */,
 				04DE5DE5232A2EDB00662D48 /* 4.jpg in Resources */,
 			);
