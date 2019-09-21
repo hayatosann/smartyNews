@@ -42,8 +42,8 @@ iosアプリケーションの作成を通じて以下の目的を達成する:
  - 一機能実装ごとにシュミレーターにて作動確認
  
 # 挙動
-## アプリ起動時
-[![Image from Gyazo](https://i.gyazo.com/9203f1492d3fd6c7e69909f15f6bd589.gif)](https://gyazo.com/9203f1492d3fd6c7e69909f15f6bd589)
+https://s19.aconvert.com/convert/p3r68-cdx67/uyhlc-51sir.gif
+
 # 課題
  - ios12.0においてはUIWebViewの使用は非推奨であったためWKWebViewを使用し、当初は実装していたが上手くページ遷移ができず実装にかなりの時間を要したため、UIWebViewを使用しての実装へと切り替えた。今後はWKWebViewでの実装が主流となっていくと考えられるため、WKWebViewを使いこなせるように公式リファレンスや該当記事を見つけ出して学習に努めていきたいところである。
  
